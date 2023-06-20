@@ -1,0 +1,92 @@
+
+    <div class="parent">  
+       
+        <div class="div1"> 
+               <img [src]="car?.images" class="item-reserved-preview">  </div>
+        <div class="div2">
+             <img src="https://i.postimg.cc/1XZdH429/fuel.png" alt="fuel-img" class="icon-card"><span class="info-text">  {{ car?.fuel }} <br> </span>
+              <img src="https://i.postimg.cc/N0Zww04h/price.png" alt="price-img" class="icon-card"><span class="info-text">  {{ car?.price }} $ <br></span>
+             <img src="https://i.postimg.cc/2j4M5FL3/meter.png" alt="km-img" class="icon-card"> <span class="info-text"> {{ car?.kms }} Kilometros <br></span>
+              <img class="shop-info" src="https://i.postimg.cc/R0yyWgTJ/car-dealer.png" alt="shop-img" class="icon-card"> <span class="info-text">  {{ car?.shop_name }} <br></span> 
+            <img  class="shop-info"src="https://i.postimg.cc/mkN56BW7/map.png" alt="shop-img" class="icon-card"> <span class="info-text">  {{ car?.shop_location }} </span> </div>
+        <div class="div3" *ngFor="let img of filterCarData" > <img  src="{{img.link}}" alt=""> <br>  </div>
+ 
+
+
+       
+          
+
+      
+</div>
+
+<div class="contact-form">  
+     <form [formGroup]="reactiveForm">
+    <label>
+      Name
+      <input type="text" formControlName="username" >
+    
+    </label>
+    <div
+      *ngIf="
+         reactiveForm.get('username')?.touched
+      "
+    >
+      Name is required.
+    </div>
+
+
+    <label>
+      Avatar (optional)
+      <input type="text" formControlName="avatar">
+    </label>
+  
+    <label>
+      Email
+      <input type="email" formControlName="email">
+      
+    </label>
+
+    <div
+      *ngIf="
+        reactiveForm.get('email')?.invalid && reactiveForm.get('email')?.touched
+      "
+    >
+      Valid email is required.
+    </div>
+  
+    <label>
+       Your deposit in $
+      <input type="number" formControlName="money_spent" value="">
+    </label>
+
+    <div
+    *ngIf="
+       reactiveForm.get('money_spent')?.touched
+    "
+  >
+    Insert a valid deposit count in $!
+  </div>
+  
+    <label>
+      Phone
+      <input type="text" formControlName="phone">
+    </label>
+
+    <div
+    *ngIf="
+       reactiveForm.get('phone')?.touched
+    "
+  >
+    Phone number is required 
+  </div>
+
+    <button class="reserve-button" (click)="onAdd()">Reserve now</button>
+    <div class="data-ok" *ngIf="userAdded;else notOk">All done! Our comercial will contact you as soon as possible <img src="https://i.postimg.cc/5tjRyk8W/ok.png" alt="ok-img"> </div>
+
+  </form></div>
+
+  <ng-template #notOk>
+    <div class="data-ok" >Please fill all fields!  </div>
+
+  </ng-template>
+

@@ -1,0 +1,197 @@
+<div class="brand-searcher">
+  <label for="Brand">Brand</label> <br />
+  <select [(ngModel)]="selectedBrand">
+    <option value="" selected>Show all cars</option>
+    <option *ngFor="let car of carBrands" [value]="car">{{ car }}</option>
+  </select>
+  <br />
+  <button (click)="filter()" class="btn-carlist">Search</button> <br />
+</div>
+
+<ul>
+  <li style="--accent-color: #60c5a6">
+    <div (click)="sortByPrice()" class="icon">
+      <i class="fa fa-light fa-hand-holding-dollar"></i>
+
+
+     
+    </div>
+    <div class="title">Car price</div>
+    <div class="descr">Ascending price</div>
+  </li>
+  <li style="--accent-color: #f20071">
+    <div (click)="hideDiv()" class="icon">
+      <i class="fa fa-light fa-gauge"></i>
+    </div>
+    <div class="title">Kilometres</div>
+    <div class="descr">Descending KMS</div>
+  </li>
+  <li style="--accent-color: #fcba35">
+    <div (click)="showMore()" class="icon">
+      <i class="fa fa-sharp fa-light fa-angles-right" style="color: #ffffff;"></i>
+    </div>
+    <div class="title">Show More</div>
+    <div class="descr">Show more cars at once</div>
+  </li>
+</ul>
+
+<div class="container-searcher">
+  <div>
+    <input
+      class="fuel-searcher"
+      placeholder="Search by Fuel"
+      type="text"
+      id="nameFilter"
+      [(ngModel)]="nameFilter"
+      (input)="applyNameFilter()"
+    />
+    <br />
+  </div>
+</div>
+
+<!-- <button (click)="sortByPrice()" class="btn-carlist">Ascending price</button> <br>
+
+<button (click)="hideDiv()" class="btn-carlist">Descending KMS</button> -->
+
+<h3 class="info">*All cars are organized from lower KM to higher</h3>
+<div [hidden]="isDivHidden">
+  <div *ngIf="filteredVehicles.length > 0; else noResults" class="container">
+    <div
+      *ngFor="
+        let car of filteredVehicles
+          | kmsAscending
+          | showLimitElements : displayLimit
+      "
+    >
+      <img
+        [src]="
+          car.images
+            ? car.images
+            : 'https://i.postimg.cc/MHfp6hMm/oie-r9f-Bojq8n-LXD.png'
+        "
+        alt=""
+      />
+      <p>
+        <i class="fa fa-duotone fa-car fa-xl"></i> {{ car.name }} -
+        {{ car.model }}
+      </p>
+
+      <p><i class="fa fa-solid fa-gas-pump fa-xl"></i> {{ car.fuel }}</p>
+      <p>
+        <i class="fa fa-sharp fa-solid fa-hand-holding-dollar fa-xl"></i>
+        {{ car.price }}
+      </p>
+      <p><i class="fa-solid fa-gauge-high fa-xl"></i> {{ car.kms }} KM</p>
+
+      <p><i class="fa-solid fa-warehouse fa-xl"></i> {{ car.shop_name }}</p>
+      <p class="shop-info">
+        <i class="fa-sharp fa-solid fa-map-pin fa-xl"></i>
+        {{ car.shop_location }}
+      </p>
+      <button (click)="goToCarDetails(car.id)" class="btn-details">
+        Details
+      </button>
+      <button class="btn-details" (click)="goToReserve(car?.id)">
+        Reserve
+      </button>
+    </div>
+  </div>
+  <div id="btn-showmore" *ngIf="filteredVehicles.length > 0">
+    <button (click)="showMore()" class="btn-carlist">Show More</button>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <div>
+    <div class="container">
+      <div
+        *ngFor="
+          let car of vehicles | kmsAscending | showLimitElements : displayLimit
+        "
+        [hidden]="isDivHidden"
+      >
+        <img
+          [src]="
+            car.images
+              ? car.images
+              : 'https://i.postimg.cc/MHfp6hMm/oie-r9f-Bojq8n-LXD.png'
+          "
+          alt=""
+        />
+
+        <p>
+          <i class="fa fa-duotone fa-car fa-xl"></i> {{ car.name }} -
+          {{ car.model }}
+        </p>
+        <p><i class="fa fa-solid fa-gas-pump fa-xl"></i> {{ car.fuel }}</p>
+        <p>
+          <i class="fa fa-sharp fa-solid fa-hand-holding-dollar fa-xl"></i>
+          {{ car.price }}
+        </p>
+        <p><i class="fa-solid fa-gauge-high fa-xl"></i> {{ car.kms }} KM</p>
+
+        <p><i class="fa-solid fa-warehouse fa-xl"></i> {{ car.shop_name }}</p>
+        <p class="shop-info">
+          <i class="fa-sharp fa-solid fa-map-pin fa-xl"></i>
+          {{ car.shop_location }}
+        </p>
+        <button (click)="goToCarDetails(car.id)" class="btn-details">
+          Details
+        </button>
+        <button class="btn-details" (click)="goToReserve(car?.id)">
+          Reserve
+        </button>
+      </div>
+    </div>
+    <div id="btn-showmore">
+      <button (click)="showMore()" class="btn-carlist">Show More</button>
+    </div>
+  </div>
+</ng-template>
+
+<div [hidden]="isDivHiddenDesc">
+  <div class="container-Desc">
+    <div
+      *ngFor="
+        let car of vehicles | kmsDescending | showLimitElements : displayLimit
+      "
+    >
+      <img
+        [src]="
+          car.images
+            ? car.images
+            : 'https://i.postimg.cc/MHfp6hMm/oie-r9f-Bojq8n-LXD.png'
+        "
+        alt=""
+      />
+
+      <p>
+        <i class="fa fa-duotone fa-car fa-xl"></i> {{ car.name }} -
+        {{ car.model }}
+      </p>
+      <p><i class="fa fa-solid fa-gas-pump fa-xl"></i> {{ car.fuel }}</p>
+      <p>
+        <i class="fa fa-sharp fa-solid fa-hand-holding-dollar fa-xl"></i>
+        {{ car.price }}
+      </p>
+      <p><i class="fa-solid fa-gauge-high fa-xl"></i> {{ car.kms }} KM</p>
+
+      <p><i class="fa-solid fa-warehouse fa-xl"></i> {{ car.shop_name }}</p>
+      <p class="shop-info">
+        <i class="fa-sharp fa-solid fa-map-pin fa-xl"></i>
+        {{ car.shop_location }}
+      </p>
+      <button (click)="goToCarDetails(car.id)" class="btn-details">
+        Details
+      </button>
+      <button class="btn-details" (click)="goToReserve(car?.id)">
+        Reserve
+      </button>
+    </div>
+  </div>
+  <div id="btn-showmore">
+    <button (click)="showMore()" class="btn-carlist" [hidden]="isDivHiddenDesc">
+      Show More
+    </button>
+  </div>
+</div>

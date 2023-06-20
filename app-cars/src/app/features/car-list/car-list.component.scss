@@ -1,0 +1,396 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  p {
+    padding-bottom: 10px;
+  }
+  img {
+    max-width: 100%;
+    width: 100vw;
+    height: 32vh;
+
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+}
+
+.container > div {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 300px;
+}
+
+.container p {
+  margin: 0;
+}
+
+.container p:first-child {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.gallery a {
+  margin: 8px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.container-searcher {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
+  div {
+    justify-content: space-between;
+  }
+}
+
+.container-searchh {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-search > * {
+  margin: 10px;
+}
+
+.shop-info {
+  text-align: center;
+}
+
+.icon-card {
+  width: 45px;
+  padding-left: 10px;
+}
+
+.btn-details {
+  align-content: center;
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  width: 250px;
+}
+
+h3 {
+  text-align: center;
+}
+.fuel-searcher {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.fuel-searcher:focus {
+  outline: none;
+  border-color: #01e140;
+}
+
+.fuel-searcher::placeholder {
+  color: #999;
+}
+
+.fuel-searcher:hover,
+.fuel-searcher:active {
+  border-color: #45a049;
+}
+
+.btn-carlist {
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.container-Desc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  p {
+    padding-bottom: 10px;
+  }
+  img {
+    max-width: 100%;
+    width: 100vw;
+    height: 40vh;
+
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+}
+
+.container-Desc > div {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 300px;
+}
+
+.container-Desc p {
+  margin: 0;
+}
+
+.container-Desc p:first-child {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.gallery a {
+  margin: 8px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.container-Desc-searcher {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
+  div {
+    justify-content: space-between;
+  }
+}
+
+.container-Desc-searchh {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-Desc-search > * {
+  margin: 10px;
+}
+
+.shop-info {
+  text-align: center;
+}
+
+.icon-card {
+  width: 45px;
+  padding-left: 10px;
+}
+
+.btn-details {
+  align-content: center;
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  width: 250px;
+}
+
+h3 {
+  text-align: center;
+}
+.fuel-searcher {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.fuel-searcher:focus {
+  outline: none;
+  border-color: #01e140;
+}
+
+.fuel-searcher::placeholder {
+  color: #999;
+}
+
+.fuel-searcher:hover,
+.fuel-searcher:active {
+  border-color: #45a049;
+}
+
+.btn-carlist {
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+#btn-showmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    width: 30vw;
+  }
+}
+
+.info {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --color: rgba(30, 30, 30);
+  --bgColor: rgba(245, 245, 245);
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  font-family: "Jura", sans-serif;
+  color: var(--color);
+  background: var(--bgColor);
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  width: min(60rem, 90%);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+ul li {
+  max-width: 12rem;
+  justify-self: center;
+  display: grid;
+  grid-template:
+    "icon"
+    "line"
+    "dot"
+    "title"
+    "descr" 1fr;
+  justify-items: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+ul li .icon {
+  grid-area: icon;
+  width: 6rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2.5rem;
+  border: 0.4rem solid var(--bgColor);
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.45),
+    inset -0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.45);
+  color: white;
+  cursor: pointer;
+}
+
+ul li::before {
+  content: "";
+  grid-area: line;
+  height: 2rem;
+  border-right: 2px dotted currentColor;
+}
+
+ul li::after {
+  content: "";
+  grid-area: dot;
+  width: 1rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent-color);
+  justify-self: center;
+  margin-bottom: 0.5rem;
+}
+
+ul li .title {
+  grid-area: title;
+  margin-block: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.credits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.credits a {
+  color: var(--color);
+}
+
+.brand-searcher {
+  padding-left: 10%;
+  padding-top: 8%;
+  position: absolute;
+}

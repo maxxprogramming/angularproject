@@ -1,0 +1,245 @@
+<form [formGroup]="reactiveForm">
+  <div>
+    <label for="name">Brand</label>
+
+    <select formControlName="name" [value]="car?.name">
+      <option [value]="car?.name" selected>{{ car?.name }}</option>
+      <option *ngFor="let car of carBrands" [value]="car">{{ car }}</option>
+    </select>
+
+    <div
+      *ngIf="
+        reactiveForm.get('name')?.invalid && reactiveForm.get('name')?.touched
+      "
+    >
+      Name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="model">Model</label>
+    <input
+      type="text"
+      id="model"
+      formControlName="model"
+      value="{{ car?.model }}"
+    />
+  </div>
+
+  <div>
+    <label for="images">Main Image</label>
+    <input
+      type="text"
+      id="images"
+      formControlName="images"
+      value="{{ car?.images }}"
+    />
+  </div>
+
+  <div>
+    <label for="gallery"
+      >Gallery (insert link one by one and leave a space between) / add space</label
+    >
+    <textarea
+      [value]="car?.gallery"
+      formControlName="gallery"
+      [(ngModel)]="inputText"
+      (input)="onInputChange()"
+    ></textarea>
+    <div *ngIf="previewImg">
+      <div *ngFor="let imgPreview of previewImg" class="img-preview">
+        <img [src]="imgPreview" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="price">Price</label>
+    <input
+      type="number"
+      id="price"
+      formControlName="price"
+      [value]="car?.price"
+    />
+    <div
+      *ngIf="
+        reactiveForm.get('price')?.invalid && reactiveForm.get('price')?.touched
+      "
+    >
+      Price is required.
+    </div>
+  </div>
+
+  <div>
+    <label>Fuel</label>
+    <select formControlName="fuel" [value]="car?.fuel">
+      <option *ngFor="let fuel of carFuels" [value]="fuel">{{ fuel }}</option>
+    </select>
+    <div
+      *ngIf="
+        reactiveForm.get('fuel')?.invalid && reactiveForm.get('fuel')?.touched
+      "
+    >
+      Fuel is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="kms">Kilometres</label>
+    <input
+      type="number"
+      id="kms"
+      formControlName="kms"
+      value="{{ car?.kms }}"
+    />
+    <div
+      *ngIf="
+        reactiveForm.get('kms')?.invalid && reactiveForm.get('kms')?.touched
+      "
+    >
+      Kms is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      value="{{ car?.description }}"
+    ></textarea>
+    <div
+      *ngIf="
+        reactiveForm.get('description')?.invalid &&
+        reactiveForm.get('description')?.touched
+      "
+    >
+      Description is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="shop_location">Shop Location</label>
+    <input
+      type="text"
+      id="shop_location"
+      formControlName="shop_location"
+      value="{{ car?.shop_location }}"
+    />
+    <div
+      *ngIf="
+        reactiveForm.get('shop_location')?.invalid &&
+        reactiveForm.get('shop_location')?.touched
+      "
+    >
+      Shop Location is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="shop_country">Shop Name</label>
+    <input
+      type="text"
+      id="shop_country"
+      formControlName="shop_name"
+      value="{{ car?.shop_name }}"
+    />
+    <div
+      *ngIf="
+        reactiveForm.get('shop_country')?.invalid &&
+        reactiveForm.get('shop_country')?.touched
+      "
+    >
+      Shop Country is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="Color">Color</label>
+    <input
+      type="text"
+      id="color"
+      formControlName="color"
+      value="{{ car?.color }}"
+    />
+    <div
+      *ngIf="
+        reactiveForm.get('color')?.invalid && reactiveForm.get('color')?.touched
+      "
+    >
+      Color is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="dgt_reg">DGT Registration</label>
+    <input
+      type="text"
+      id="dgt_reg"
+      formControlName="dgt_reg"
+      value="{{ car?.dgt_reg }}"
+    />
+    <div
+      *ngIf="
+        reactiveForm.get('dgt_reg')?.invalid &&
+        reactiveForm.get('dgt_reg')?.touched
+      "
+    >
+      DGT Registration is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="reserved">Reserved</label>
+    <input
+      type="checkbox"
+      id="reserved"
+      formControlName="reserved"
+      value="{{ car?.reserved }}"
+    />
+  </div>
+
+  <div *ngIf="this.reactiveForm.value.reserved">
+    <select formControlName="user">
+      <option selected value="none">Select a user</option>
+      <option selected value="none">No user registered</option>
+      <option *ngFor="let user of users" [ngValue]="user">
+        {{ user?.name }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngFor="let car of carsOwner; let i = index">
+    <div *ngIf="car.owner.name">
+      <span>Owner:{{ car.owner.name }}</span>
+      <p><img [src]="car.owner.avatar" alt="avatar-user" /></p>
+      <p>Email: {{ car.owner.email }}</p>
+      <p>Country: {{ car.owner.country }}</p>
+      <p>Deposit: {{ car.owner.money_spent }} $</p>
+      <p>Bank account: {{ car.owner.bank_account }}</p>
+      <p>Money left to pay: {{ car.price - car.owner.money_spent }} $</p>
+    </div>
+  </div>
+
+  <button type="submit" (click)="onReserved()">!!!RESERVE NOW!!!</button>
+
+  <button type="submit" (click)="onEdit(); checkError()">EDIT</button>
+
+  <button type="submit" (click)="onAdd(); checkError()">ADD</button>
+
+  <button type="submit" (click)="onDelete(); checkError()">DELL</button>
+
+  <button id="btn-reset" type="submit" (click)="onReset()">
+    RESET ALL DATA
+  </button>
+
+  <div *ngIf="messageToUser; else notOk">
+    <span class="data-ok"> {{ messageToUserOK }} </span>
+  </div>
+
+  <ng-template #notOk>
+    <div>
+      <span class="data-ok"> {{ messageToUserOK }} </span>
+    </div>
+  </ng-template>
+</form>

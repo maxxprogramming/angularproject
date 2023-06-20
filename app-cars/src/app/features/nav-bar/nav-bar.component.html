@@ -1,0 +1,84 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Cars Sales</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/"
+          routerLinkActive="active-link"
+          ariaCurrentWhenActive="page"
+          class="link-navbar"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/carlist"
+          routerLinkActive="active-link"
+          ariaCurrentWhenActive="page"
+          class="link-navbar"
+          >Car List</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/admin-panel"
+          routerLinkActive="active-link"
+          ariaCurrentWhenActive="page"
+          class="link-navbar"
+          >Admin Panel</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/aboutus"
+          routerLinkActive="active-link"
+          ariaCurrentWhenActive="page"
+          class="link-navbar"
+          >About</a
+        >
+      </li>
+    </ul>
+    <div class="weather">
+      <div>
+        <div>
+          <img src="https://i.postimg.cc/43X705Fj/sun-1.png" alt="sun-img" />
+          <span class="weather-info">{{ dataApi?.city }}&nbsp;</span>
+          <span class="weather-info"> {{ celsius }} °C°F</span>
+        </div>
+
+        <div>
+          <img
+            src="https://i.postimg.cc/YSQbHMkj/humidity.png"
+            alt="humidity-img"
+          />
+          <span class="weather-info">Humidity {{ humidity }}%</span>
+        </div>
+
+        <div>
+          <img src="https://i.postimg.cc/fRGBpkG6/storm.png" alt="speed-img" />
+          <span class="weather-info">Wind speed {{ speed }} km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- testings -> your ip is : {{dataApi?.ip}} -->

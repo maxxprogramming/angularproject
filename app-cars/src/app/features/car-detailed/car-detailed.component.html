@@ -1,0 +1,57 @@
+<div class="coozy-container">
+  <div class="main-photo"><img src="{{ car?.images }}" alt="" /></div>
+  <div class="btn-edit">
+    <i
+      (click)="goToAdministration(car?.id)"
+      class="fa-solid fa-pen-to-square fa-2xl"
+    ></i>
+  </div>
+  <p>Brand: {{ car?.name }}</p>
+
+  <p>Model: {{ car?.model }}</p>
+  <p>Fuel: {{ car?.fuel }}</p>
+  <p>Price: {{ car?.price }} $</p>
+  <p>Kms: {{ car?.kms }}</p>
+  <p>Description: {{ car?.description }}</p>
+  <p>Shop: {{ car?.shop_name }}</p>
+  <p>Shop Location: {{ car?.shop_location }}</p>
+  <p>Type of car: {{ car?.type }}</p>
+  <p>Doors: {{ car?.doors }}</p>
+  <p>Register number: {{ car?.dgt_reg }}</p>
+  <p>Color:</p>
+  <div
+    id="color-button"
+    [style.background-color]="car?.color"
+    style="background-color: red"
+  >
+    <img
+      id="img-color"
+      src="https://i.postimg.cc/sDD53Ltj/brushes.png"
+      alt="brushes"
+    />
+  </div>
+  <div>
+    Reserved:
+    <span *ngIf="car?.reserved; else notReserved"
+      ><i
+        class="fa-solid fa-heart fa-bounce fa-xl"
+        [style.color]="car?.color"
+      ></i
+    ></span>
+    <ng-template #notReserved
+      ><i
+        class="fa-solid fa-xmark fa-bounce fa-xl"
+        [style.color]="car?.color"
+      ></i
+    ></ng-template>
+  </div>
+
+  <div class="gallery" *ngFor="let img of car?.gallery">
+    <figure class="wave">
+      <img src="{{ img }}" alt="gallery image" />
+      <figcaption>{{ car?.name }}</figcaption>
+    </figure>
+  </div>
+
+ 
+</div>

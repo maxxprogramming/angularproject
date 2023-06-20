@@ -1,0 +1,29 @@
+.navbar-default {
+  background-color: rgba(36, 38, 43);
+  color: white;
+  border: none;
+  border-bottom: 1px solid #e91e63;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+}
+
+.weather {
+  padding: 20px;
+}
+.weather img {
+  width: 20px;
+  display: inline-flex;
+}
+
+.weather div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 1px;
+  padding-right: 15px;
+  justify-content: space-around;
+}
