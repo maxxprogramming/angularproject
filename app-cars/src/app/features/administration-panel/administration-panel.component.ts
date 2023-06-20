@@ -210,15 +210,12 @@ export class AdministrationPanelComponent implements OnInit {
   public messageButtons: string = '';
 
   convertInputToArray(inputText: string): string[] {
-    const words = inputText
-      .split(',')
-      .map((word) => word.trim())
-      .filter((word) => word !== '');
-  
+    const words = inputText.split(/\s+/).filter((word) => word.trim() !== '');
+
     if (words.length === 0) {
       return [];
     }
-  
+
     return words;
   }
 
